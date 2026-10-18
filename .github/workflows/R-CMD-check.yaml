@@ -38,13 +38,7 @@ jobs:
           needs: check
       - name: Install LaTeX for the Sweave vignette
         shell: Rscript {0}
-        run: |
-          tinytex::install_tinytex()
-          tinytex::tlmgr_install(c("geometry", "hyperref", "amsmath", "fancyvrb", "grfext"))
-          bins <- list.dirs(file.path(tinytex::tinytex_root(), "bin"),
-                            full.names = TRUE, recursive = FALSE)
-          cat(paste(bins, collapse = "\n"), "\n",
-              file = Sys.getenv("GITHUB_PATH"), append = TRUE, sep = "")
+        run: source(".github/scripts/setup-latex.R")
       - uses: r-lib/actions/check-r-package@v2
         with:
           build_args: 'c("--no-manual")'
