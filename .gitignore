@@ -1,0 +1,12 @@
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rcheck/
+*.tar.gz
+/vignettes/*.aux
+/vignettes/*.log
+/vignettes/*.out
+/vignettes/*.tex
+/vignettes/*.pdf
